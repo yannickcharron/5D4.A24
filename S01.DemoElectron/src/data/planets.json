@@ -1,0 +1,92 @@
+{
+  "uuid": "5b1f4017-2262-4629-beee-56b446bd5918",
+  "lastMigration": 32,
+  "name": "Planets",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "8d1dae53-1d3a-45f2-8382-c8f1d78bf45f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "planets",
+      "responses": [
+        {
+          "uuid": "36ce936c-107c-45c7-8af0-6a5ae348426f",
+          "body": "[\n  {{#repeat 20}}\n  { \"position\": {\n    \"x\": 601.7266193402963,\n    \"y\": -924.3338705651713,\n    \"z\": -20.858847400126592\n  },\n  \"name\": \"Planet {{faker 'number.int' min=1 max=99}}\",\n  \"discoveredBy\": \"{{faker 'person.firstName'}} {{faker 'person.lastName'}}\",\n  \"discoveryDate\": \"2013-11-03\",\n  \"temperature\": {{faker 'number.int' min=1 max=99}},\n  \"icon\": \"https://assets.andromia.science/planets/{{faker 'number.int' min=1 max=20}}.png\",\n  \"href\": \"https://localhost:3001/planets/{{faker 'string.uuid'}}\",\n  \"lightspeed\": \"259.ba03b99f36c@-39c.55788a9682@-14.dbdd6c57cc6\" }\n  {{/repeat}}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "8d1dae53-1d3a-45f2-8382-c8f1d78bf45f"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

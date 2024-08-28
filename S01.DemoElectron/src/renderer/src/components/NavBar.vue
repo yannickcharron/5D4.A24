@@ -17,7 +17,12 @@
         </button>
         <div id="navbarCollapse" class="collapse navbar-collapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'home' }">Accueil</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'planets' }">Planètes</router-link>
+            </li>
           </ul>
           <form class="d-flex">
             <input
