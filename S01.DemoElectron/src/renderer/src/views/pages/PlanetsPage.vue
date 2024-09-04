@@ -1,9 +1,14 @@
 <template>
   <DefaultLayout>
-    <div class="container">
-      <h1>Planètes</h1>
-      <h4 v-for="planet of planets" :key="planet.name">{{ planet.name }}</h4>
-    </div>
+    <main>
+      <div class="container">
+        <h1>Planètes</h1>
+        <div v-for="planet of planets" :key="planet.name" class="col-4">
+          <h4>{{ planet.name }}</h4>
+          <img class="planet" :src="planet.icon" :alt="planet.name" />
+        </div>
+      </div>
+    </main>
   </DefaultLayout>
 </template>
 
@@ -25,7 +30,11 @@ onMounted(async () => {
 
 <style scoped>
 h1 {
-  font-size: 72pt;
+  font-size: 64pt;
   font-family: 'Comic Sans MS';
+}
+
+.planet {
+  width: 200px;
 }
 </style>

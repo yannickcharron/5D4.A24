@@ -9,7 +9,7 @@ import axiosPlugin from './plugins/axios'
 const app = createApp(App)
 
 app.use(axiosPlugin, {
-  baseUrl: 'http://localhost:3001'
+  baseUrl: 'https://api.andromia.science'
 })
 
 app.use(router)
