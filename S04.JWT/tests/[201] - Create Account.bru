@@ -1,0 +1,19 @@
+meta {
+  name: [201] - Create Account
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:5000/accounts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email":"ycharron@cstj.qc.ca",
+    "displayName":"YellowKiwi",
+    "password":"123456"
+  }
+}

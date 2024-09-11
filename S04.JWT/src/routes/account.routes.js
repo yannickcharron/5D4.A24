@@ -14,31 +14,38 @@ router.get('/secure/:uuid', retriveOneSecure);
 router.get('/:uuid', retriveOne);
 router.delete('/logout', logout);
 
-async function post(req, res, next) { 
+async function post(req, res, next) {
+    try {
+        let account = await accountRepository.create(req.body);
+        account = account.toObject({ getters: false, virtuals: false });
+        account = accountRepository.transform(account);
+        res.status(201).json(account);
+    } catch (err) {
+        return next(err);
+    }
+}
+
+async function secure(req, res, next) {
     //TODO:
 }
 
-async function secure(req, res, next) { 
+async function login(req, res, next) {
     //TODO:
 }
 
-async function login(req, res, next) { 
+async function refreshToken(req, res, next) {
     //TODO:
 }
 
-async function refreshToken(req, res, next) { 
+async function retriveOneSecure(req, res, next) {
     //TODO:
 }
 
-async function retriveOneSecure(req, res, next) { 
+async function retriveOne(req, res, next) {
     //TODO:
 }
 
-async function retriveOne(req, res, next) { 
-    //TODO:
-}
-
-async function logout(req, res, next) { 
+async function logout(req, res, next) {
     //TODO:
 }
 
