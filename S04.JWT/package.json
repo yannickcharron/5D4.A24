@@ -1,0 +1,26 @@
+{
+  "name": "5d4-jwt",
+  "version": "1.0.0",
+  "description": "Exemple JWT",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --env-file=.development.env --watch server.js "
+  },
+  "keywords": [
+    "node.js",
+    "cstj"
+  ],
+  "author": "Yannick Charron",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "express": "^4.19.2",
+    "express-validator": "^7.2.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^8.6.1"
+  }
+}
