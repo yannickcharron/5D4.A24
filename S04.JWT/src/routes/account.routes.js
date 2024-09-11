@@ -10,8 +10,8 @@ router.post('/', post);
 router.post('/actions/login', login);
 router.post('/actions/refresh', refreshToken);
 router.get('/secure', secure);
-router.get('/secure/:uuid', retriveOneSecure);
-router.get('/:uuid', retriveOne);
+router.get('/secure/:uuid', retrieveOneSecure);
+router.get('/:uuid', retrieveOne);
 router.delete('/logout', logout);
 
 async function post(req, res, next) {
@@ -30,18 +30,33 @@ async function secure(req, res, next) {
 }
 
 async function login(req, res, next) {
-    //TODO:
+    
+    const { email, password } = req.body;
+
+    const loginResult = await accountRepository.login(email, password);
+
+    if(loginResult.account) {
+        let account = loginResult.account.toObject({getters: false, virtuals: false});
+        account = accountRepository.transform(account);
+        //TODO: Generate Token
+        res.status(201).json(account);
+    } else {
+        return next(loginResult.err);
+    }
+
+
+
 }
 
 async function refreshToken(req, res, next) {
     //TODO:
 }
 
-async function retriveOneSecure(req, res, next) {
+async function retrieveOneSecure(req, res, next) {
     //TODO:
 }
 
-async function retriveOne(req, res, next) {
+async function retrieveOne(req, res, next) {
     //TODO:
 }
 

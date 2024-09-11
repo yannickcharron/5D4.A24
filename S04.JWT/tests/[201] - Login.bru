@@ -1,0 +1,18 @@
+meta {
+  name: [201] - Login
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:5000/accounts/actions/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email":"ycharron@cstj.qc.ca",
+    "password":"123456"
+  }
+}
