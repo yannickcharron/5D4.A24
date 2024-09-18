@@ -1,0 +1,15 @@
+meta {
+  name: [200] - Secure
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:5000/accounts/secure
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InljaGFycm9uQGNzdGoucWMuY2EiLCJpYXQiOjE3MjY2NjQzOTksImV4cCI6MTcyNjY2NDY5OSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIn0.ZTp7z6UEQ8xV7ybVc0raCTT723zyXlV-rfnleVCz_ko
+}

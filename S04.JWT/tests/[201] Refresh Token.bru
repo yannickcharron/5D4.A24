@@ -1,0 +1,21 @@
+meta {
+  name: [201] Refresh Token
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:5000/accounts/actions/refresh
+  body: json
+  auth: none
+}
+
+headers {
+  email: ycharron1@cstj.qc.ca
+}
+
+body:json {
+  {
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMjVlMjUyNTAtOGUyNC00NTBlLTkzNzMtNDk2ZWEzOWQzM2U2IiwiaWF0IjoxNzI2NjY0Mzk5LCJleHAiOjE3MjY3NTA3OTksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCJ9._uWyoFmzwZOWDuEABy9lxwxAI6ilDWv5Wjk0NTCszds"
+  }
+}

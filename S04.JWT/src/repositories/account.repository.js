@@ -1,5 +1,6 @@
 import HttpErrors from 'http-errors';
 import argon from 'argon2';
+import jwt from 'jsonwebtoken';
 
 import Account from '../models/account.model.js';
 
@@ -14,7 +15,7 @@ class AccountRepository {
 
         //Account avec email existe
         if (await this.validatePassword(password, account)) {
-            return { account }
+            return { account };
         }
 
         return { err: HttpErrors.Unauthorized() };
@@ -34,9 +35,24 @@ class AccountRepository {
         }
     }
 
-    generateJWT(account, needNewRefresh = true) {}
+    generateJWT(account, needNewRefresh = true) {
+        const accessToken = jwt.sign({ email: account.email }, process.env.JWT_TOKEN_SECRET, {
+            expiresIn: process.env.JWT_TOKEN_LIFE,
+            issuer: process.env.BASE_URL
+        });
 
-    async validateRefreshToken(email, refreshToken) {}
+        const refreshToken = jwt.sign({ uuid: account.uuid }, process.env.JWT_REFRESH_SECRET, {
+            expiresIn: process.env.JWT_REFRESH_LIFE,
+            issuer: process.env.BASE_URL
+        });
+
+        return { accessToken, refreshToken };
+    }
+
+    async validateRefreshToken(uuid, headerEmail) {
+        const account = await Account.findOne({uuid: uuid});
+        return { validate: account.email === headerEmail, account: account}
+    }
 
     logout(email) {}
 
