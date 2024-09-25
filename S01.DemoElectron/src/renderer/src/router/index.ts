@@ -12,6 +12,11 @@ const router = createRouter({
       path: '/planets',
       name: 'planets',
       component: () => import('@renderer/views/pages/PlanetsPage.vue')
+    },
+    {
+      path: '/vuetify',
+      name: 'vuetify',
+      component: () => import('@renderer/views/pages/VuetifyPage.vue')
     }
   ]
 })

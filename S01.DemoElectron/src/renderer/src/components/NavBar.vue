@@ -23,6 +23,9 @@
             <li class="nav-item">
               <router-link class="nav-link" :to="{ name: 'planets' }">Planètes</router-link>
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'vuetify' }">Vuetify</router-link>
+            </li>
           </ul>
           <form class="d-flex">
             <input
